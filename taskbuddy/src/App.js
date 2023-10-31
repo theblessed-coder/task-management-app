@@ -1,4 +1,5 @@
 import "./App.css";
+import "./index.css";
 import SideBar from "./components/SideBar";
 import Main from "./components/Main";
 import User from "./components/User";

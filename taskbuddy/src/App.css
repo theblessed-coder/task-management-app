@@ -1,0 +1,54 @@
+/* App */
+.App {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Sidebar */
+.Sidebar {
+    background-color: var(--color-light-purple);
+    color: var(--text-color);
+    font-size: var(--font-size-medium);
+    line-height: var(--line-height-base);
+    width: 20rem;
+    min-width: 21rem;
+    height: 100%;
+}
+
+/* Main */
+.Main {
+    background-image: url(./images/background.svg);
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: var(--text-color);
+    font-size: var(--font-size-medium);
+    line-height: var(--line-height-base);
+}
+
+/* User */
+.User {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1rem;
+    border-bottom: 1px solid var(--color-purple);
+}
+
+.User .logo img {
+    width: 50px;
+}
+
+.User .info p {
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-bold);
+}
+
+.User .info a {
+    text-decoration: none;
+    display: flex;
+    justify-content: flex-end;
+}

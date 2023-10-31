@@ -2,7 +2,7 @@ import React from 'react'
 
 function Task() {
   return (
-    <div>Task</div>
+    <div className="Task">Task</div>
   )
 }
 
