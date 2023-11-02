@@ -2,10 +2,10 @@
 
 :root {
     /* Color Variable */
-    --color-light-purple: #ffe8f5;
-    --color-purple: #8000FF;
+    --color-light-green: #a6d5be;
     --color-orange: #ff2400;
     --color-brown: #5c2c0c;
+    --color-white: #ffffff;
     --text-color: #000000;
 
     /* Font family variables */

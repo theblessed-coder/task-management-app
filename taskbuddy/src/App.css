@@ -8,7 +8,7 @@
 
 /* Sidebar */
 .Sidebar {
-    background-color: var(--color-light-purple);
+    background-color: var(--color-white);
     color: var(--text-color);
     font-size: var(--font-size-medium);
     line-height: var(--line-height-base);
@@ -19,7 +19,7 @@
 
 /* Main */
 .Main {
-    background-image: url(./images/background.svg);
+    background-color: var(--color-light-green);
     height: 100%;
     width: 100%;
     background-repeat: no-repeat;
@@ -35,7 +35,7 @@
     align-items: center;
     justify-content: space-around;
     padding: 1rem;
-    border-bottom: 1px solid var(--color-purple);
+    border-bottom: 1px solid var(--color-light-green);
 }
 
 .User .logo img {
@@ -52,3 +52,49 @@
     display: flex;
     justify-content: flex-end;
 }
+
+/* Modal */
+.Modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000000cc;
+}
+
+.Modal .container {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -25%);
+    background: #ffffff;
+}
+
+/* AddNewTAsk */
+
+.AddNewTask {
+    border-bottom: 1px solid var(--color-light-green);
+}
+
+.AddNewTask .btn {
+    padding: 1rem;
+    width: 100%;
+}
+
+.AddNewTask .btn button {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 0.3rem;
+    background-color: var(--color-orange);
+    color: var(--color-white);
+    font-weight: var(--font-weight-bold);
+    cursor: pointer;
+}
+
+.AddNewTask .btn button:hover{
+    filter: brightness(1.1);
+    transition: all 300ms ease;
+}
+
