@@ -68,11 +68,10 @@
     top: 25%;
     left: 50%;
     transform: translate(-50%, -25%);
-    background: #ffffff;
+    background: var(--color-white);
 }
 
 /* AddNewTAsk */
-
 .AddNewTask {
     border-bottom: 1px solid var(--color-light-green);
 }
@@ -98,3 +97,93 @@
     transition: all 300ms ease;
 }
 
+/* AddNewTask Form */
+.AddNewTask form {
+    padding: 1rem 1rem cal(1rem + 40px) 1rem;
+    width: 500px;
+    background: var(--color-white);
+    border-radius: 1rem;
+}
+
+.AddNewTask form .text input {
+    width: 100%;
+    padding: 1rem;
+    margin:  1rem 0;
+    font-size: var(--font-size-medium);
+    border: none;
+}
+
+.AddNewTask form .text input:focus {
+    outline: none;
+    border-bottom: 1px solid var(--color-orange);
+}
+
+.AddNewTask form .remind {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+}
+
+.AddNewTask form p {
+    margin-left: 1rem;
+}
+
+.AddNewTask form h3 {
+    margin-left: 1rem;
+}
+
+.AddNewTask form .title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.AddNewTask form .pick-day {
+    padding: 1.5rem 1.5rem 0 1.5rem ;
+}
+
+.AddNewTask form .pick-time {
+    padding: 1.5rem;
+}
+
+.AddNewTask form .pick-project {
+    padding: 0.5rem;
+}
+
+.AddNewTask form .pick-project .projects {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem 1rem 0 1rem;
+}
+
+.AddNewTask form .pick-project .projects .project {
+    border: 1px solid var(--color-orange);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin: 1rem;
+    cursor: pointer;
+}
+
+.AddNewTask form .pick-project .projects .active {
+    background: var(--color-orange);
+    color: var(--color-white);
+}
+
+.AddNewTask form .cancel {
+    position: absolute;
+    top: -3px;
+    right: 5px;
+    cursor: pointer;
+}
+
+.AddNewTask form .confirm button {
+    width: 80%;
+    height: 40px;
+    background: var(--color-orange);
+    color: var(--color-white);
+    font-size: var(--font-size-medium);
+    border: none;
+    border-radius: 0 0 0.4rem 0.4rem;
+    margin: 1rem 5rem;
+    cursor: pointer;
+}
