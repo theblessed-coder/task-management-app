@@ -236,3 +236,112 @@
     font-size: var(--font-size-medium);
     cursor: pointer;
 }
+
+/* Projects */
+.Projects {
+    padding: 1rem;
+    border-bottom: 1px solid var(--color-light-green);
+}
+
+.Projects .header {
+    display: flex;
+    align-items: center;
+}
+
+.Projects .header .title {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.Projects .header .title p {
+    margin-left: 0.5rem;
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-bold);
+}
+
+.Projects .header .btns {
+    display: flex;
+    align-items: center;
+}
+
+.Projects .header .btns span.edit {
+    margin-right: 0.5rem;
+}
+
+.Projects .header .btns span {
+    border-radius: 50%;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Projects .header .btns span:hover {
+    background-color: var(--color-light-green);
+    transition: all 300ms ease-in-out;
+}
+
+.Projects .items {
+    padding: 0.5rem;
+}
+
+/* Project */
+.Project {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0.25rem;
+    margin: 0.5rem;
+    font-size: var(--font-size-medium);
+}
+
+.Project .name {
+    cursor: pointer;
+    word-break: break-all;
+}
+
+.Project .btns {
+    display: flex;
+    align-items: center;
+}
+
+.Project .btns .total-tasks {
+    position: absolute;
+    right: 0;
+    background: var(--color-light-green);
+    width: 25px;
+    height: 25px;
+    font-size: var(--font-size-medium);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.Project .btns .edit-delete {
+    position: absolute;
+    right: 0;
+    display: flex;
+}
+
+.Project .btns .edit-delete span {
+    border-radius: 50%;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 300ms ease-in-out;
+}
+
+.Project .btns .edit-delete span.edit:hover {
+    background: var(--color-light-green);
+}
+
+.Project .btns .edit-delete span.delete:hover {
+    background: var(--color-orange);
+}

@@ -1,10 +1,27 @@
 import React from "react";
+import { Pencil, XCircle } from "react-bootstrap-icons";
 import RenameProject from "./RenameProject";
 
-function Project() {
+function Project({ project, edit }) {
   return (
     <div className="Project">
-      <RenameProject />
+      <div className="name">{project.name}</div>
+      <div className="btns">
+        {edit ? (
+          <div className="edit-delete">
+            <span className="edit">
+              <Pencil size="13" />
+            </span>
+            <span className="delete">
+              <XCircle size="13" />
+            </span>
+          </div>
+        ) : project.numOfTasks === 0 ? (
+          ""
+        ) : (
+          <div className="total-tasks">{project.numOfTasks}</div>
+        )}
+      </div>
     </div>
   );
 }

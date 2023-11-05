@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
 
 function RenameProject() {
   return (
-    <div>RenameProject</div>
-  )
+  <div className="RenameProject">
+  RenameProject
+  </div>
+  );
 }
 
-export default RenameProject
+export default RenameProject;
