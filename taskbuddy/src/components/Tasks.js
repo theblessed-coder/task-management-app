@@ -1,14 +1,9 @@
-import React from "react";
-import Task from "./Task";
-import Next7Days from "./Next7Days";
+import React from 'react'
 
 function Tasks() {
   return (
-    <div className="Task">
-      <Task />
-      <Next7Days />
-    </div>
-  );
+    <div>Tasks</div>
+  )
 }
 
 export default Tasks

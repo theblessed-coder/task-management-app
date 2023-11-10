@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz@6..12&family=Poppins:wght@500&display=swap');
+
 /* App */
 .App {
     display: flex;
@@ -60,7 +62,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: #000000cc;
+    background: var(--text-color);
 }
 
 .Modal .container {
@@ -92,7 +94,7 @@
     cursor: pointer;
 }
 
-.AddNewTask .btn button:hover{
+.AddNewTask .btn button:hover {
     filter: brightness(1.1);
     transition: all 300ms ease;
 }
@@ -108,7 +110,7 @@
 .AddNewTask form .text input {
     width: 100%;
     padding: 1rem;
-    margin:  1rem 0;
+    margin: 1rem 0;
     font-size: var(--font-size-medium);
     border: none;
 }
@@ -139,7 +141,7 @@
 }
 
 .AddNewTask form .pick-day {
-    padding: 1.5rem 1.5rem 0 1.5rem ;
+    padding: 1.5rem 1.5rem 0 1.5rem;
 }
 
 .AddNewTask form .pick-time {
@@ -344,4 +346,148 @@
 
 .Project .btns .edit-delete span.delete:hover {
     background: var(--color-orange);
+}
+
+/* AddNewProject */
+.AddNewProject .add-button span {
+    margin-right: 0.5rem;
+}
+
+/* ProjectForm */
+.ProjectForm {
+    background-color: var(--color-white);
+    padding: 1rem;
+    border-radius: 0.4rem;
+    position: relative;
+    padding-bottom: 4rem;
+}
+
+.ProjectForm input {
+    width: 100%;
+    height: 40px;
+    margin: 1.5rem 0;
+    border: none;
+    font-size: var(--font-size-medium);
+}
+
+.ProjectForm input:focus {
+    outline: none;
+    border-bottom: 1px solid var(--color-orange);
+}
+
+.ProjectForm button {
+    position: absolute;
+    bottom: 0;
+    height: 40px;
+    width: 50%;
+    border: none;
+    color: var(--color-white);
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-bold);
+    cursor: pointer;
+    transition: filter 300ms ease-in-out;
+}
+
+.ProjectForm button.cancel {
+    left: 0;
+    background-color: var(--color-brown);
+}
+
+.ProjectForm button.confirm {
+    right: 0;
+    background-color: var(--color-orange);
+}
+
+.ProjectForm button:hover {
+    filter: brightness(1.1);
+}
+
+/* Tasks */
+.Tasks {
+    width: 250px;
+    height: 80%;
+    background-color: var(--color-white);
+    position: absolute;
+    bottom: 40px;
+    left: 250px;
+    border-radius: 0.4rem;
+    opacity: 0.9;
+    padding: 0 0.5rem 0.5rem 0.5rem;
+}
+
+.Tasks .selected-project {
+    margin: 1rem 0;
+    text-transform: capitalize;
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-bold);
+    padding-bottom: 0.2rem;
+    border-bottom: 1px solid var(--color-light-green);
+}
+
+.Tasks .tasks {
+    overflow-y: auto;
+}
+
+/* Task */
+.Task {
+    padding: 0.5rem 1rem;
+}
+
+.Task .task-container {
+    display: flex;
+    align-items: center;
+}
+
+.Task .task-container span {
+    cursor: pointer;
+}
+
+.Task .task-container .text {
+    position: relative;
+    flex: 1;
+    margin: 0 1rem;
+    cursor: pointer;
+}
+
+.Task .task-container .text span {
+    font-size: 0.8rem;
+    color: var(--color-brown);
+}
+
+.Task .task-container .text .line {
+    height: 1px;
+    background: var(--color-brown);
+    position: absolute;
+    top: 25%;
+    width: 0;
+    transition: width 250ms ease-in-out;
+}
+
+.Task .task-container .text .line-through {
+    width: 100%;
+}
+
+.Task .task-container .add-to-next-day {
+    margin-right: 1rem;
+}
+
+/* EditTodo */
+.EditTodo {
+    position: absolute;
+    bottom: 40px;
+    left: calc(40px + 450px + 40px);
+    background-color: var(--color-white);
+    height: 80%;
+    width: 450px;
+    border-radius: 0.4rem;
+    opacity: 0.9;
+}
+
+.EditTodo .header {
+    margin: 1rem 0.5rem;
+
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-bold);
+    padding-bottom: 0.2rem;
+    border-bottom: 1px solid var(--color-orange);
 }

@@ -6,7 +6,7 @@ import Project from "./Project";
 function Projects() {
   const [showMenu, setShowMenu] = useState(true);
   const [edit, setEdit] = useState(false);
-  const pencilColor = edit ? "var(--color-orange)" : "#000000";
+  const pencilColor = edit ? "var(--color-orange)" : "var(--text-color)";
 
   const projects = [
     { id: 1, name: "personal", numOfTasks: 0 },
