@@ -73,7 +73,7 @@
     background: var(--color-white);
 }
 
-/* AddNewTAsk */
+/* AddNewTask */
 .AddNewTask {
     border-bottom: 1px solid var(--color-light-green);
 }
@@ -137,7 +137,7 @@
 .AddNewTask form .title {
     display: flex;
     align-items: center;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.5rem ;
 }
 
 .AddNewTask form .pick-day {
@@ -186,7 +186,7 @@
     font-size: var(--font-size-medium);
     border: none;
     border-radius: 0 0 0.4rem 0.4rem;
-    margin: 1rem 5rem;
+    margin: 1rem;
     cursor: pointer;
 }
 
@@ -402,32 +402,6 @@
     filter: brightness(1.1);
 }
 
-/* Tasks */
-.Tasks {
-    width: 250px;
-    height: 80%;
-    background-color: var(--color-white);
-    position: absolute;
-    bottom: 40px;
-    left: 250px;
-    border-radius: 0.4rem;
-    opacity: 0.9;
-    padding: 0 0.5rem 0.5rem 0.5rem;
-}
-
-.Tasks .selected-project {
-    margin: 1rem 0;
-    text-transform: capitalize;
-    font-size: var(--font-size-medium);
-    font-weight: var(--font-weight-bold);
-    padding-bottom: 0.2rem;
-    border-bottom: 1px solid var(--color-light-green);
-}
-
-.Tasks .tasks {
-    overflow-y: auto;
-}
-
 /* Task */
 .Task {
     padding: 0.5rem 1rem;
@@ -471,23 +445,12 @@
     margin-right: 1rem;
 }
 
-/* EditTodo */
-.EditTodo {
-    position: absolute;
-    bottom: 40px;
-    left: calc(40px + 450px + 40px);
-    background-color: var(--color-white);
-    height: 80%;
-    width: 450px;
-    border-radius: 0.4rem;
-    opacity: 0.9;
-}
-
-.EditTodo .header {
-    margin: 1rem 0.5rem;
-
-    font-size: var(--font-size-medium);
-    font-weight: var(--font-weight-bold);
-    padding-bottom: 0.2rem;
-    border-bottom: 1px solid var(--color-orange);
+/* Media query for screens smaller than 600px */
+@media (max-width: 600px) {
+    .AddNewTask form .pick-project .projects .project {
+        width: 100%;
+    }
+     .AddNewTask form .pick-project .projects {
+        flex-wrap: nowrap;
+     }
 }
