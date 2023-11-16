@@ -3,6 +3,7 @@ import { Bell, CalendarDay, Clock, Palette, X } from "react-bootstrap-icons";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import TimePicker from "react-time-picker";
+import "react-time-picker/dist/TimePicker.css";
 
 function TaskForm({
   handleSubmit,
