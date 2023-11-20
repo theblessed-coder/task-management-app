@@ -83,7 +83,7 @@
 .AddNewTask .btn {
     padding: 1rem;
     width: 100%;
-    height: 70px;
+    height: 60px;
 }
 
 .AddNewTask .btn button {
@@ -452,12 +452,12 @@
 
 /* Tasks */
 .Tasks {
-    width: 250px;
+    width: 300px;
     height: 100%;
     background-color: var(--color-white);
     position: absolute;
     top: 40px;
-    left: 30px;
+    left: 20px;
     border-radius: 0.4rem;
     opacity: 0.9;
     padding: 0 0.5rem 0.5rem 0.5rem;
@@ -480,10 +480,10 @@
 .EditTask {
     position: absolute;
     top: 40px;
-    left: calc(30px + 250px + 30px);
+    left: calc(20px + 300px + 20px);
     background-color: var(--color-white);
     height:100%;
-    width: 250px;
+    width: 300px;
     border-radius: 0.4rem;
     opacity: 0.9;
 }
