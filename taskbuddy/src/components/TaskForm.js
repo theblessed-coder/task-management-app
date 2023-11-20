@@ -8,20 +8,21 @@ import "react-time-picker/dist/TimePicker.css";
 function TaskForm({
   handleSubmit,
   heading = false,
-  text,
-  setText,
-  day,
-  setDay,
-  time,
-  setTime,
+  text, setText,
+  day, setDay,
+  time, setTime,
   projects,
   showButtons = false,
-  setShowModal = false,
+  setShowModal =false
 }) {
+
   return (
     <form onSubmit={handleSubmit} className="TaskForm">
       <div className="text">
-        {heading && <h3>{heading}</h3>}
+        {
+          heading && 
+          <h3>{heading}</h3>
+          }
         <input
           type="text"
           value={text}
@@ -61,13 +62,14 @@ function TaskForm({
           ))}
         </div>
       </div>
-      {showButtons && (
+      {
+        showButtons && (
         <div>
           <div className="cancel" onClick={() => setShowModal(false)}>
             <X size="40" />
           </div>
           <div className="confirm">
-            <button>+ Add to do</button>
+            <button>+ Add task</button>
           </div>
         </div>
       )}
@@ -75,4 +77,4 @@ function TaskForm({
   );
 }
 
-export default TaskForm;
+export default TaskForm

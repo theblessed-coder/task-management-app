@@ -1,10 +1,12 @@
-import React, { useState } from "react";
-import ProjectForm from "./ProjectForm";
+import React, { useState } from "react"
+import ProjectForm from "./ProjectForm"
 
 function RenameProject({ project, setShowModal }) {
   const [newProjectName, setNewProjectName] = useState(project.name);
 
-  function handleSubmit(e) {}
+  function handleSubmit(e) {
+    
+  }
 
   return (
     <div className="RenameProject">

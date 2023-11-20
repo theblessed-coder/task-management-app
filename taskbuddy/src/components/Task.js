@@ -17,7 +17,8 @@ function Task({ task }) {
         onMouseLeave={() => setHover(false)}
       >
         <div className="check-task">
-          {task.checked ? (
+          {
+            task.checked ? (
             <span className="checked">
               <CheckCircleFill color="var(--color-orange)" />
             </span>
@@ -55,4 +56,4 @@ function Task({ task }) {
   );
 }
 
-export default Task;
+export default Task

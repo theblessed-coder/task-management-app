@@ -6,7 +6,9 @@ import { Plus } from "react-bootstrap-icons";
 function AddNewProject() {
   const [showModal, setShowModal] = useState(false);
   const [projectName, setProjectName] = useState("");
-  function handleSubmit(e) {}
+  function handleSubmit(e) {
+    
+  }
 
   return (
     <div className="AddNewProject">

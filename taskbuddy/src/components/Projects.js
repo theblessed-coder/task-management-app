@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { CaretUp, Palette, PencilFill } from "react-bootstrap-icons";
-import AddNewProject from "./AddNewProject";
-import Project from "./Project";
+import React, { useState } from "react"
+import { CaretUp, Palette, PencilFill } from "react-bootstrap-icons"
+import AddNewProject from "./AddNewProject"
+import Project from "./Project"
 
 function Projects() {
   const [showMenu, setShowMenu] = useState(true);
@@ -12,7 +12,7 @@ function Projects() {
     { id: 1, name: "personal", numOfTasks: 0 },
     { id: 2, name: "work", numOfTasks: 1 },
     { id: 3, name: "other", numOfTasks: 2 },
-  ];
+  ]
 
   return (
     <div className="Projects">
@@ -22,9 +22,10 @@ function Projects() {
           <p>Projects</p>
         </div>
         <div className="btns">
-          {showMenu && projects.length > 0 && (
-            <span className="edit" onClick={() => setEdit((edit) => !edit)}>
-              <PencilFill size="15" color={pencilColor} />
+          {
+              showMenu && projects.length > 0 && (
+              <span className="edit" onClick={() => setEdit((edit) => !edit)}>
+                <PencilFill size="15" color={pencilColor} />
             </span>
           )}
           <AddNewProject />
@@ -35,7 +36,10 @@ function Projects() {
       </div>
       <div className="items">
         {projects.map((project) => (
-          <Project project={project} key={project.id} edit={edit} />
+          <Project
+              project={project}
+              key={project.id}
+              edit={edit} />
         ))}
       </div>
     </div>

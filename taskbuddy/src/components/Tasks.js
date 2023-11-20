@@ -1,9 +1,10 @@
-import React from "react";
-import Task from "./Task";
-import Next7Days from "./Next7Days";
+import React, { useContext } from "react"
+import Task from "./Task"
+import Next7Days from "./Next7Days"
+import { TaskContext } from "../context"
 
 function Tasks() {
-  const selectedProject = "today";
+  const { selectedProject } = useContext(TaskContext)
 
   const tasks = [
     {
@@ -30,16 +31,19 @@ function Tasks() {
 
   return (
     <div className="Tasks">
-      <div className="selected-project">{selectedProject}</div>
+      <div className="selected-project">
+      {selectedProject}
+      </div>
       <div className="tasks">
-        {selectedProject === "next 7 days" ? (
+        {
+          selectedProject === "next 7 days" ? (
           <Next7Days tasks={tasks} />
         ) : (
-          tasks.map((task) => <Task task={task} key={task.key} />)
+          tasks.map((task) => <Task task={task} key={task.id} />)
         )}
       </div>
     </div>
   );
 }
 
-export default Tasks;
+export default Tasks

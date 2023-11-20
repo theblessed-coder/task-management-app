@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import Modal from "./Modal";
-import TaskForm from "./TaskForm";
+import React, { useState } from "react"
+import Modal from "./Modal"
+import TaskForm from "./TaskForm"
 
 function AddNewTask() {
   const [showModal, setShowModal] = useState(false);
@@ -14,12 +14,16 @@ function AddNewTask() {
     { id: 3, name: "other", numOfTasks: 2 },
   ];
 
-  function handleSubmit(e) {}
+  function handleSubmit(e) {
+
+  }
 
   return (
     <div className="AddNewTask">
       <div className="btn">
-        <button onClick={() => setShowModal(true)}>+ New Task</button>
+        <button onClick={() => setShowModal(true)}> 
+        + New Task
+        </button>
       </div>
       <Modal showModal={showModal} setShowModal={setShowModal}>
         <TaskForm
@@ -32,7 +36,7 @@ function AddNewTask() {
           time={time}
           setTime={setTime}
           projects={projects}
-          showButtons={true}
+          showButtons={false}
           setShowModal={setShowModal}
         />
       </Modal>
@@ -40,4 +44,4 @@ function AddNewTask() {
   );
 }
 
-export default AddNewTask;
+export default AddNewTask

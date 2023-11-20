@@ -8,6 +8,7 @@ function ProjectForm({
   setShowModal,
   confirmButtonText,
 }) {
+
   return (
     <form onSubmit={handleSubmit} className="ProjectForm">
       <h3>{heading}</h3>
@@ -24,9 +25,11 @@ function ProjectForm({
       >
         Cancel
       </button>
-      <button className="confirm">{confirmButtonText}</button>
+      <button className="confirm">
+        {confirmButtonText}
+      </button>
     </form>
   );
 }
 
-export default ProjectForm;
+export default ProjectForm
