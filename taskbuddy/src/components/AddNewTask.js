@@ -1,12 +1,18 @@
-import React, { useState } from "react"
-import Modal from "./Modal"
-import TaskForm from "./TaskForm"
+import React, { useContext, useEffect, useState } from "react";
+import Modal from "./Modal";
+import TaskForm from "./TaskForm";
+import { TaskContext } from "../context";
 
 function AddNewTask() {
+  //Context
+  const { selectedProject } = useContext(TaskContext);
+
+  //State
   const [showModal, setShowModal] = useState(false);
   const [text, setText] = useState("");
   const [day, setDay] = useState(new Date());
   const [time, setTime] = useState(new Date());
+  const [taskProject, setTaskProject] = useState(selectedProject);
 
   const projects = [
     { id: 1, name: "personal", numOfTasks: 0 },
@@ -14,16 +20,16 @@ function AddNewTask() {
     { id: 3, name: "other", numOfTasks: 2 },
   ];
 
-  function handleSubmit(e) {
+  function handleSubmit(e) {}
 
-  }
+  useEffect(() => {
+    setTaskProject(selectedProject);
+  }, [selectedProject]);
 
   return (
     <div className="AddNewTask">
       <div className="btn">
-        <button onClick={() => setShowModal(true)}> 
-        + New Task
-        </button>
+        <button onClick={() => setShowModal(true)}>+ New Task</button>
       </div>
       <Modal showModal={showModal} setShowModal={setShowModal}>
         <TaskForm
@@ -35,8 +41,10 @@ function AddNewTask() {
           setDay={setDay}
           time={time}
           setTime={setTime}
+          taskProject={taskProject}
+          setTaskProject={setTaskProject}
           projects={projects}
-          showButtons={false}
+          showButtons={true}
           setShowModal={setShowModal}
         />
       </Modal>
@@ -44,4 +52,4 @@ function AddNewTask() {
   );
 }
 
-export default AddNewTask
+export default AddNewTask;

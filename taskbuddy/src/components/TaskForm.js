@@ -7,22 +7,23 @@ import "react-time-picker/dist/TimePicker.css";
 
 function TaskForm({
   handleSubmit,
-  heading = false,
-  text, setText,
-  day, setDay,
-  time, setTime,
+  heading,
+  text,
+  setText,
+  day,
+  setDay,
+  time,
+  setTime,
+  taskProject,
+  setTaskProject,
   projects,
-  showButtons = false,
-  setShowModal =false
+  showButtons,
+  setShowModal,
 }) {
-
   return (
     <form onSubmit={handleSubmit} className="TaskForm">
+      {heading && <h3>{heading}</h3>}
       <div className="text">
-        {
-          heading && 
-          <h3>{heading}</h3>
-          }
         <input
           type="text"
           value={text}
@@ -55,15 +56,26 @@ function TaskForm({
           <p>Choose a project</p>
         </div>
         <div className="projects">
-          {projects.map((project) => (
-            <div className="project" key={project.id}>
-              {project.name}
+          {projects.length > 0 ? (
+            projects.map((project) => (
+              <div
+                className={`project ${
+                  taskProject === project.name ? "active" : ""
+                }`}
+                onClick={() => setTaskProject(project.name)}
+                key={project.id}
+              >
+                {project.name}
+              </div>
+            ))
+          ) : (
+            <div style={{ color: "var(--color-orange)" }}>
+              Please add a project before proceeding
             </div>
-          ))}
+          )}
         </div>
       </div>
-      {
-        showButtons && (
+      {showButtons && (
         <div>
           <div className="cancel" onClick={() => setShowModal(false)}>
             <X size="40" />
@@ -77,4 +89,4 @@ function TaskForm({
   );
 }
 
-export default TaskForm
+export default TaskForm;
