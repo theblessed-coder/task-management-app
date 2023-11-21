@@ -1,3 +1,4 @@
+import moment from "moment";
 import React, { useState } from "react";
 import {
   ArrowClockwise,
@@ -14,6 +15,27 @@ function Task({ task }) {
     firebase.firestore().collection("tasks").doc(task.id).delete();
   };
 
+  const checkTask = (task) => {
+    firebase.firestore().collection("tasks").doc(task.id).update({
+      checked: !task.checked,
+    });
+  };
+
+  const repeatNextDay = (task) => {
+    const nextDayDate = moment(task.date, "MM/DD/YYYY").add(1, "days");
+
+    const repeatedTask = {
+      ...task,
+      checked: false,
+      date: nextDayDate.format("MM/DD/YYYY"),
+      day: nextDayDate.format("d"),
+    };
+
+    delete repeatedTask.id;
+
+    firebase.firestore().collection("tasks").add(repeatedTask);
+  };
+
   return (
     <div className="Task">
       <div
@@ -21,7 +43,7 @@ function Task({ task }) {
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
       >
-        <div className="check-task">
+        <div className="check-task" onClick={() => checkTask(task)}>
           {task.checked ? (
             <span className="checked">
               <CheckCircleFill color="#bebebe" />
@@ -41,7 +63,7 @@ function Task({ task }) {
           </span>
           <div className={`line ${task.checked ? "line-through" : ""}`}></div>
         </div>
-        <div className="add-to-next-day">
+        <div className="add-to-next-day" onClick={() => repeatNextDay(task)}>
           {task.checked && (
             <span>
               <ArrowClockwise />
