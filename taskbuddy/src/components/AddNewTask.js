@@ -29,7 +29,7 @@ function AddNewTask() {
           day: moment(day).format("d"),
           time: moment(time).format("hh:mm A"),
           checked: false,
-          color: randomcolor(),
+          color: randomcolor({luminosity :'dark'}),
           projectName: taskProject,
         });
 

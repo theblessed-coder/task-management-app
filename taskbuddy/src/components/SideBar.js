@@ -1,11 +1,33 @@
-import React from "react";
+import React, { useContext, useEffect, useRef } from "react";
+import { TaskContext } from "../context";
 
-function SideBar({ children }) {
-  return(
-  <div className="Sidebar">
-    {children}
-  </div>
+function Sidebar({ children }) {
+  // CONTEXT
+  const { setSelectedTask } = useContext(TaskContext);
+
+  // REF
+  const sidebarRef = useRef();
+
+  useEffect(() => {
+    document.addEventListener("click", handleClick);
+
+    return () => document.removeEventListener("click", handleClick);
+  });
+
+  const handleClick = (e) => {
+    if (
+      e.target === sidebarRef.current ||
+      sidebarRef.current.contains(e.target)
+    ) {
+      setSelectedTask(undefined);
+    }
+  };
+
+  return (
+    <div className="Sidebar" ref={sidebarRef}>
+      {children}
+    </div>
   );
 }
 
-export default SideBar
+export default Sidebar;

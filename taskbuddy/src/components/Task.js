@@ -1,15 +1,28 @@
 import moment from "moment";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   ArrowClockwise,
   CheckCircleFill,
   Circle,
   Trash,
 } from "react-bootstrap-icons";
+import { TaskContext } from "../context";
 import firebase from "../firebase";
 
 function Task({ task }) {
+  // STATE
   const [hover, setHover] = useState(false);
+
+  // CONTEXT
+  const { selectedTask, setSelectedTask } = useContext(TaskContext);
+
+  const handleDelete = (task) => {
+    deleteTask(task);
+
+    if (selectedTask === task) {
+      setSelectedTask(undefined);
+    }
+  };
 
   const deleteTask = (task) => {
     firebase.firestore().collection("tasks").doc(task.id).delete();
@@ -54,7 +67,7 @@ function Task({ task }) {
             </span>
           )}
         </div>
-        <div className="text">
+        <div className="text" onClick={() => setSelectedTask(task)}>
           <p style={{ color: task.checked ? "#bebebe" : "#000000" }}>
             {task.text}
           </p>
@@ -70,7 +83,7 @@ function Task({ task }) {
             </span>
           )}
         </div>
-        <div className="delete-task" onClick={() => deleteTask(task)}>
+        <div className="delete-task" onClick={() => handleDelete(task)}>
           {(hover || task.checked) && (
             <span>
               <Trash />
