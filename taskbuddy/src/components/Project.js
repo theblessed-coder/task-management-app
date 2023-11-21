@@ -1,46 +1,62 @@
-import React, { useContext, useState } from "react"
-import { Pencil, XCircle } from "react-bootstrap-icons"
-import Modal from "./Modal"
-import RenameProject from "./RenameProject"
-import { TaskContext } from "../context"
+import React, { useContext, useState } from "react";
+import { Pencil, XCircle } from "react-bootstrap-icons";
+import Modal from "./Modal";
+import RenameProject from "./RenameProject";
+import { TaskContext } from "../context";
+import firebase from "../firebase";
 
 function Project({ project, edit }) {
-  //Context
-  const { setSelectedProject } = useContext(TaskContext)
+  // CONTEXT
+  const { defaultProject, selectedProject, setSelectedProject } =
+    useContext(TaskContext);
 
-  //State
+  // STATE
   const [showModal, setShowModal] = useState(false);
+
+  const deleteProject = (project) => {
+    firebase
+      .firestore()
+      .collection("projects")
+      .doc(project.id)
+      .delete()
+      .then(() => {
+        firebase
+          .firestore()
+          .collection("tasks")
+          .where("projectName", "==", project.name)
+          .get()
+          .then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+              doc.ref.delete();
+            });
+          });
+      })
+      .then(() => {
+        if (selectedProject === project.name) {
+          setSelectedProject(defaultProject);
+        }
+      });
+  };
 
   return (
     <div className="Project">
-      <div className="name"
-           onClick={ () => setSelectedProject(project.name)}
-      >
-      {project.name}
+      <div className="name" onClick={() => setSelectedProject(project.name)}>
+        {project.name}
       </div>
       <div className="btns">
-        {
-          edit ?
-          (
+        {edit ? (
           <div className="edit-delete">
-            <span className="edit"
-                  onClick={() => setShowModal(true)}>
+            <span className="edit" onClick={() => setShowModal(true)}>
               <Pencil size="13" />
             </span>
-            <span className="delete">
+            <span className="delete" onClick={() => deleteProject(project)}>
               <XCircle size="13" />
             </span>
           </div>
-        )
-        : 
-        project.numOfTasks === 0 ? (
+        ) : project.numOfTasks === 0 ? (
           ""
-        )
-        : 
-        (
-          <div className="total-tasks">
-          {project.numOfTasks}
-          </div>
+        ) : (
+          <div className="total-tasks">{project.numOfTasks}</div>
         )}
       </div>
       <Modal showModal={showModal} setShowModal={setShowModal}>
@@ -50,4 +66,4 @@ function Project({ project, edit }) {
   );
 }
 
-export default Project
+export default Project;

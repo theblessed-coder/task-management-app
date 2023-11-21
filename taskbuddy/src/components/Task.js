@@ -5,9 +5,14 @@ import {
   Circle,
   Trash,
 } from "react-bootstrap-icons";
+import firebase from "../firebase";
 
 function Task({ task }) {
   const [hover, setHover] = useState(false);
+
+  const deleteTask = (task) => {
+    firebase.firestore().collection("tasks").doc(task.id).delete();
+  };
 
   return (
     <div className="Task">
@@ -17,10 +22,9 @@ function Task({ task }) {
         onMouseLeave={() => setHover(false)}
       >
         <div className="check-task">
-          {
-            task.checked ? (
+          {task.checked ? (
             <span className="checked">
-              <CheckCircleFill color="var(--color-orange)" />
+              <CheckCircleFill color="#bebebe" />
             </span>
           ) : (
             <span className="unchecked">
@@ -29,7 +33,7 @@ function Task({ task }) {
           )}
         </div>
         <div className="text">
-          <p style={{ color: task.checked ? "var(--color-orange)" : "var(--text-color)" }}>
+          <p style={{ color: task.checked ? "#bebebe" : "#000000" }}>
             {task.text}
           </p>
           <span>
@@ -44,7 +48,7 @@ function Task({ task }) {
             </span>
           )}
         </div>
-        <div className="delete-task">
+        <div className="delete-task" onClick={() => deleteTask(task)}>
           {(hover || task.checked) && (
             <span>
               <Trash />
@@ -56,4 +60,4 @@ function Task({ task }) {
   );
 }
 
-export default Task
+export default Task;
