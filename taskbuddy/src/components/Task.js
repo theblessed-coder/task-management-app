@@ -33,7 +33,7 @@ function Task({ task }) {
             {task.text}
           </p>
           <span>
-            {task.time} - {task.project}
+            {task.time} - {task.projectName}
           </span>
           <div className={`line ${task.checked ? "line-through" : ""}`}></div>
         </div>

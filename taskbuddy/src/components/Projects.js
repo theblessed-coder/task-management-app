@@ -1,18 +1,16 @@
-import React, { useState } from "react"
-import { CaretUp, Palette, PencilFill } from "react-bootstrap-icons"
-import AddNewProject from "./AddNewProject"
-import Project from "./Project"
+import React, { useContext, useState } from "react";
+import { CaretUp, Palette, PencilFill } from "react-bootstrap-icons";
+import AddNewProject from "./AddNewProject";
+import Project from "./Project";
+import { TaskContext } from "../context";
 
 function Projects() {
-  const [showMenu, setShowMenu] = useState(true);
+  const [showMenu] = useState(true);
   const [edit, setEdit] = useState(false);
-  const pencilColor = edit ? "var(--color-orange)" : "var(--text-color)";
+  const pencilColor = edit ? "#1EC94C" : "#000000";
 
-  const projects = [
-    { id: 1, name: "personal", numOfTasks: 0 },
-    { id: 2, name: "work", numOfTasks: 1 },
-    { id: 3, name: "other", numOfTasks: 2 },
-  ]
+  // CONTEXT
+  const { projects } = useContext(TaskContext);
 
   return (
     <div className="Projects">
@@ -22,10 +20,9 @@ function Projects() {
           <p>Projects</p>
         </div>
         <div className="btns">
-          {
-              showMenu && projects.length > 0 && (
-              <span className="edit" onClick={() => setEdit((edit) => !edit)}>
-                <PencilFill size="15" color={pencilColor} />
+          {showMenu && projects.length > 0 && (
+            <span className="edit" onClick={() => setEdit((edit) => !edit)}>
+              <PencilFill size="15" color={pencilColor} />
             </span>
           )}
           <AddNewProject />
@@ -36,14 +33,11 @@ function Projects() {
       </div>
       <div className="items">
         {projects.map((project) => (
-          <Project
-              project={project}
-              key={project.id}
-              edit={edit} />
+          <Project project={project} key={project.id} edit={edit} />
         ))}
       </div>
     </div>
   );
 }
 
-export default Projects
+export default Projects;

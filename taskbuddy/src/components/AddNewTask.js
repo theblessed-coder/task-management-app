@@ -2,25 +2,43 @@ import React, { useContext, useEffect, useState } from "react";
 import Modal from "./Modal";
 import TaskForm from "./TaskForm";
 import { TaskContext } from "../context";
+import { calendarItems } from "../constants";
+import firebase from "../firebase";
+import moment from "moment";
+import randomcolor from "randomcolor";
 
 function AddNewTask() {
-  //Context
-  const { selectedProject } = useContext(TaskContext);
+  const { projects, selectedProject } = useContext(TaskContext);
 
-  //State
   const [showModal, setShowModal] = useState(false);
   const [text, setText] = useState("");
   const [day, setDay] = useState(new Date());
   const [time, setTime] = useState(new Date());
   const [taskProject, setTaskProject] = useState(selectedProject);
 
-  const projects = [
-    { id: 1, name: "personal", numOfTasks: 0 },
-    { id: 2, name: "work", numOfTasks: 1 },
-    { id: 3, name: "other", numOfTasks: 2 },
-  ];
+  function handleSubmit(e) {
+    e.preventDefault();
 
-  function handleSubmit(e) {}
+    if (text && !calendarItems.includes(taskProject)) {
+      firebase
+        .firestore()
+        .collection("tasks")
+        .add({
+          text: text,
+          date: moment(day).format("MM/DD/YYYY"),
+          day: moment(day).format("d"),
+          time: moment(time).format("hh:mm A"),
+          checked: false,
+          color: randomcolor(),
+          projectName: taskProject,
+        });
+
+      setShowModal(false);
+      setText("");
+      setDay(new Date());
+      setTime(new Date());
+    }
+  }
 
   useEffect(() => {
     setTaskProject(selectedProject);
