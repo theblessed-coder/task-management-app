@@ -452,7 +452,7 @@
 
 /* Tasks */
 .Tasks {
-    width: 300px;
+    width: 400px;
     height: 100%;
     background-color: var(--color-white);
     position: absolute;
@@ -481,10 +481,10 @@
 .EditTask {
     position: absolute;
     top: 40px;
-    left: calc(20px + 300px + 20px);
+    left: calc(30px + 400px + 30px);
     background-color: var(--color-white);
     height:100%;
-    width: 300px;
+    width: 400px;
     border-radius: 0.4rem;
     opacity: 0.9;
 }
@@ -510,4 +510,28 @@
 
 .Next7Days .day .total-tasks {
     margin-left: 10px;
+}
+
+@media (max-width: 768px) {
+    /*AddNewTask Form */
+    .AddNewTask form .pick-project .projects .project {
+        width: 100%;
+    }
+
+    .AddNewTask form .pick-project .projects {
+        flex-wrap: nowrap;
+    }
+
+    /* SideBar */
+    .Sidebar {
+        min-width: 15rem;
+    }
+
+    .Tasks
+        {
+        position: static;
+        width: 90%;
+        max-width: none;
+        margin: 1rem auto;
+    }
 }

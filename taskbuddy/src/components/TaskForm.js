@@ -4,6 +4,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import TimePicker from "react-time-picker";
 import "react-time-picker/dist/TimePicker.css";
+import "react-clock/dist/Clock.css";
 
 function TaskForm({
   handleSubmit,
@@ -89,4 +90,4 @@ function TaskForm({
   );
 }
 
-export default TaskForm
+export default TaskForm;

@@ -9,7 +9,6 @@ function User() {
       </div>
       <div className='info'>
         <p>Blessing Nwakwuo</p>
-        <a href='www.g'>Logout</a>
       </div>
     </div>
   )
